@@ -4,7 +4,9 @@ from src.models.settings.db_connection_handler import db_connection_handler
 from .emails_to_invite_repository import EmailsToInviteRepository
 
 db_connection_handler.connect()
+
 trip_id = str(uuid.uuid4())
+email_id = str(uuid.uuid4())
 
 @pytest.mark.skip(reason="interacao com o banco")
 def test_registry_email():
@@ -12,7 +14,7 @@ def test_registry_email():
     emails_to_invite_repository = EmailsToInviteRepository(conn)
 
     emails_trips_infos = {
-        "id": str(uuid.uuid4()),
+        "id": email_id,
         "trip_id": trip_id,
         "email": "olaMundo@gmail.com"
     }
